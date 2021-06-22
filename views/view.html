@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="views.css">
+    <title>Random Number Lottery</title>
+</head>
+<body>
+    <h1>Random Number Lottery</h1>
+    <p class="description">
+        This system draws a set of winning numbers and matches them against
+        different other sets.
+        The winnings are determined by the number of sets played and the price used
+        to play each set.
+        The Jackpot Pool is 50% of the total money played
+        The percentage of the Jackpot pool to be shared by people with different matches is determined by the values entered below
+    </p>
+    <form method="POST" id="lottery-form">
+        <legend>PLAY NOW</legend>
+        <label for="maxValue">
+            Max Value
+            <input required type="number" name='maxValue' id='maxValue'>
+        </label>
+        <label for="numAmount">
+            Amount of Numbers:
+            <input required type="number" name='numAmount' id='numAmount'>
+        </label>
+        <label for="numDraws">
+            Number of Sets:
+            <input required type="number" name='numDraws' id='numDraws'>
+        </label>
+        <label for="playPrice">
+            Price per play:
+            <input required type="number" name="playPrice" id="playPrice">
+        </label> <br/>
+        <h3>Win Categories</h3>
+        <h4>Percentage of winnings to be shared by winners</h4>
+        <label for="winCategories" id="winCategories">
+        </label>
+        <button type="submit" id="playdraws"  >PLAY</button>
+    </form>
+    <div id="results">
+        <div id="sets">
+
+        </div>
+        <div id="matches">
+
+        </div>
+        <div id="winnings">
+            winnings
+        </div>
+    </div>
+
+    
+
+
+    <script src="view.js"></script>
+    <!-- <script>
+        const lotteryForm = document.getElementById("lottery-form");
+        // const playdraws = document.getElementById("playdraws");
+        lotteryForm.addEventListener("submit", e => drawNumbers);
+        // playdraws.addEventListener("click", e => drawNumbers);
+
+        // document.getElementById("lottery-form").addEventListener("submit", function(e) {
+        //     e.preventDefault()
+        //     let data = new FormData(this);
+        //     console.log(data);
+        // })
+        var one = document.getElementById("maxValue").value
+        var two = document.getElementById("numAmount").value
+        var three = document.getElementById("numDraws").value
+        var four = document.getElementById("playPrice").value
+        var five = document.getElementById("oneMatch").value
+        var six = document.getElementById("twoMatch").value
+        var seven = document.getElementById("threeMatch").value
+        var eight = document.getElementById("fourMatch").value
+        var nine = document.getElementById("fiveMatch").value
+        console.log(one)
+
+        document.getElementById("playdraws").addEventListener("click", function(e) {
+            e.preventDefault()
+            console.log(one, two)
+            let data = {
+                maxValue: document.getElementById("maxValue").value,
+                numAmount: document.getElementById("numAmount").value,
+                numDraws: document.getElementById("numDraws").value,
+                playPrice: document.getElementById("playPrice").value,
+                oneMatch: document.getElementById("oneMatch").value,
+                twoMatch: document.getElementById("twoMatch").value,
+                threeMatch: document.getElementById("threeMatch").value,
+                fourMatch: document.getElementById("fourMatch").value,
+                fiveMatch: document.getElementById("fiveMatch").value
+            };
+            fetch('http://localhost:5000/playlottery', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(data)
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            })
+        });
+    </script> -->
+</body>
+</html>

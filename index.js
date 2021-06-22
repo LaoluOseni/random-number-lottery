@@ -5,9 +5,11 @@ const fs = require('fs');
 const path = require('path');
 const lottery = require('./models/lottery');
 const app = express();
+const cors = require('cors')
 
 //MiddleWare
 app.use(express.static(__dirname + "/public"))
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -50,7 +52,7 @@ app.post('/winPrices', (req, res) => {
 
 
 app.post('/playlottery', (req, res) => {
-    //console.log(req.body);
+    console.log(req.body);
     const { numAmount, maxValue, numDraws, playPrice } = req.body;
 
     const draws = lotfunc.drawNumbers(numAmount, maxValue, numDraws);
@@ -62,21 +64,7 @@ app.post('/playlottery', (req, res) => {
 })
 
 
-app.put('/playlottery', (req, res) => {
-    const { maxValue, numAmount, numDraws, playPrice } = req.body;
-    const { oneMatch, twoMatch, threeMatch, fourMatch, fiveMatch } = req.body;
-    //console.log(req.body);
-    const draws = lottery.drawNumbers(numAmount, maxValue, numDraws);
-    const analysis = lottery.firstAnalytics(draws);
-    const finalPrices = lottery.priceAnalytics(analysis, playPrice, oneMatch, twoMatch, threeMatch, fourMatch, fiveMatch);
-
-    // res.render('played', {
-    //     played: req.body,
-    //     draws: draws,
-    //     analysis: analysis,
-    //     finalPrices: finalPrices,
-    // });
-    //console.log(finalPrices.matchCount);
+app.get('/analysis', (req, res) => {
 
 })
 

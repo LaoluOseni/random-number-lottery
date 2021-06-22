@@ -4,13 +4,16 @@ const numAmount = document.getElementById('numAmount');
 const lotteryForm = document.getElementById("lottery-form");
 const winCategories = document.getElementById("winCategories");
 let result = {}
-const sets = document.getElementById('sets');
+const winnerDisplay = document.getElementById('winnerDisplay');
 
 
 
 //Event Listeners
 numAmount.addEventListener("change", e => {
    let number = (e.target.value);
+   while (winCategories.firstChild) {
+       winCategories.removeChild(winCategories.firstChild); 
+   }
    for (i=1; i<=number; i++) {
        let priceInput = document.createElement('input');
        updateAttributes(priceInput, {
@@ -56,6 +59,12 @@ function drawNumbers(event) {
         data.append('matchCount', matchCount);
 
         ({ winningNumbers, drawedSets } = drawData);
+        let winNum = document.createElement('h4');
+        let winNumbers = document.createElement('p');
+        winNum.innerHTML = "Winning Numbers";
+        winNumbers.innerHTML = `${winningNumbers}`;
+        winnerDisplay.appendChild(winNum);
+        winnerDisplay.appendChild(winNumbers);
         for(set of drawedSets) {
             let divSet = document.createElement('div');
             updateAttributes(divSet, {
@@ -126,13 +135,10 @@ function countMatches(drawData) {
 
 
 
-//Handling wins
-// function displaywins(winData) {
-//     document.getElementById("matches").innerHTML(winData.finalWinnings)
-    
-
-//     }
-// }
+//Handling Wins
+function displayWins(winData) {
+    ({ winCat, finalWinnings } = winData);
+}
 
 
 //Helper function

@@ -9,6 +9,9 @@
     <title>Random Number Lottery</title>
 </head>
 <body>
+
+
+    
     <h1 class="text-center">Random Number Lottery</h1>
     <p class=" text-center description px-2">
         This system draws a set of winning numbers and matches them against
@@ -18,6 +21,7 @@
         The Jackpot Pool is 50% of the total money played
         The percentage of the Jackpot pool to be shared by people with different matches is determined by the values entered below
     </p>
+    <div hidden id="spinner"></div>
     <form class="container-wrapper play-now" method="POST" id="lottery-form">
         <legend class="play-now-header text-center mt-5 mb-5 playnow">PLAY NOW</legend>
         <label for="maxValue">
@@ -40,7 +44,7 @@
         <h4 class="win-category">Percentage of winnings to be shared by winners</h4>
         <label for="winCategories" id="winCategories">
         </label>
-        <button type="submit" id="playdraws" class="mx-auto" >PLAY</button>
+        <button type="submit" id="playdraws" class="play-btn mx-auto" >PLAY</button>
     </form>
     <div id="results">
         <div id="winnerDisplay" class="text-center mx-auto"></div>
@@ -59,6 +63,7 @@
 
         </div>
     </div>
+    <div hidden id="spinner"></div>
 
     
 

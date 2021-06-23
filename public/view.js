@@ -57,7 +57,7 @@ function drawNumbers(event) {
     .then(drawData => {
         ({ winningNumbers, drawedSets } = drawData);
         checkMatches(drawData);
-        //console.log('one',drawedSets)
+        console.log('one',drawedSets)
         let matchCount1 = countMatches(drawData);
         let matchCount = JSON.stringify(matchCount1);
         

@@ -64,3 +64,112 @@ h1 {
 .form {
   margin: 5px;
 }
+
+
+
+/* Copied from React */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+html {
+  scroll-behavior: smooth;
+}
+@media (max-width:787){
+  body,html{
+    overflow-x: hidden;
+  }
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/* Also React */
+
+.container-wrapper{
+  background:#ffe0e0
+}
+
+.form-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+.playnow{
+  background: #C90101;
+
+}
+
+.playnow h1{
+  color: #FFB015;
+
+}
+p{
+  padding-left: 200px;
+  padding-right: 200px;
+  font-size:20px
+
+}
+
+.playnow label{
+  color:white;
+  font-size: large;
+}
+/* input{
+  height:120%!important;
+} */
+.playnow .form-wrapper input{
+  height: 96px!important;
+  background: none;
+  border: white 1px solid;
+  color:white;
+  font-size: 30px;
+}
+
+.win-category input{
+  height: 96px!important;
+  background: none;
+  border: black 1px solid;
+}   
+
+.win-category .col{
+  margin-bottom: 30px;
+}
+.win-category .col:nth-child(4){
+  margin-left: 100px;
+}
+
+button{
+  background: red!important;
+  font-size: 30px!important;
+  border-radius: 50px!important;
+  border: none!important;
+  width: 20%;
+
+}
+
+label{
+  margin-top: 30px;
+}
+
+
+.win-category .form-wrapper{
+  background: rgb(0 123 255 / 8%);
+  border-radius: 20px;
+  padding: 23px;
+
+}
+
+
+.winning{
+  margin-left: 40%;
+  margin-right: 20%;
+}

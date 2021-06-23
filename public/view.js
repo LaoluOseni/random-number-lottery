@@ -5,6 +5,8 @@ const lotteryForm = document.getElementById("lottery-form");
 const winCategories = document.getElementById("winCategories");
 let result = {}
 const winnerDisplay = document.getElementById('winnerDisplay');
+const matchDisplay = document.getElementById('matches');
+const winsDisplay = document.getElementById('winsDisplay');
 
 
 

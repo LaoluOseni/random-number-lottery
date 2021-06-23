@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1 class="text-center">Random Number Lottery</h1>
-    <p class=" text-center description">
+    <p class=" text-center description px-2">
         This system draws a set of winning numbers and matches them against
         different other sets.
         The winnings are determined by the number of sets played and the price used
@@ -40,16 +40,22 @@
         <h4 class="win-category">Percentage of winnings to be shared by winners</h4>
         <label for="winCategories" id="winCategories">
         </label>
-        <button type="submit" id="playdraws" >PLAY</button>
+        <button type="submit" id="playdraws" class="mx-auto" >PLAY</button>
     </form>
     <div id="results">
-        <div id="winnerDisplay">
-
-        </div>
-        <div id="matches">
-
-        </div>
-        <div id="winsDisplay">
+        <div id="winnerDisplay" class="text-center mx-auto"></div>
+        <div id="drawresults" class="container">
+            <div class="row">
+                <div class="sets col" id="drawDisplay">
+                  <h5>Draws</h5>
+                </div>
+                <div class="col" id="matches">
+                  <h5>Match Count</h5>
+                </div>
+                <div class="col" id="winsDisplay">
+                  <h5>Winnings</h5>
+                </div>
+            </div>
 
         </div>
     </div>

@@ -81,17 +81,17 @@ function countMatches(drawData) {
 //winnings is an object
 function drawPrices(numDraws, playPrice, winnings, matchCount) {
     const jackpotPrice = numDraws * playPrice;
-    const winCategories = {};
+    const winPerMatch = {};
     const finalWinnings = {};
     for (match in winnings) {
-        winCategories[match] = Number(winnings[match]) * (jackpotPrice/100);
+        winPerMatch[match] = Number(winnings[match]) * (jackpotPrice/100);
     }
 
     for (match in matchCount) {
         if (matchCount[match] == 0) {
             finalWinnings[match] = 0;            
         } else {
-            let win = (winCategories[match]/matchCount[match]);
+            let win = (winPerMatch[match]/matchCount[match]);
             win = (Math.floor(win * 100) / 100);
             finalWinnings[match] = win;
         }        
@@ -99,7 +99,7 @@ function drawPrices(numDraws, playPrice, winnings, matchCount) {
     }
 
     return {
-        winCategories: winCategories,
+        winPerMatch: winPerMatch,
         finalWinnings: finalWinnings,
     }
 }

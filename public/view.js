@@ -8,6 +8,8 @@ const winnerDisplay = document.getElementById('winnerDisplay');
 const matchDisplay = document.getElementById('matches');
 const winsDisplay = document.getElementById('winsDisplay');
 
+const drawDisplay = document.getElementById('drawDisplay');
+
 
 
 //Event Listeners
@@ -55,10 +57,12 @@ function drawNumbers(event) {
     .then(drawData => {
         ({ winningNumbers, drawedSets } = drawData);
         checkMatches(drawData);
-        console.log('one',drawedSets)
-        let matchCount = JSON.stringify(countMatches(drawData));
+        //console.log('one',drawedSets)
+        let matchCount1 = countMatches(drawData);
+        let matchCount = JSON.stringify(matchCount1);
         
         data.append('matchCount', matchCount);
+        //console.log(matchCount1);
 
         ({ winningNumbers, drawedSets } = drawData);
         let winNum = document.createElement('h4');
@@ -70,8 +74,26 @@ function drawNumbers(event) {
         for(set of drawedSets) {
             let divSet = document.createElement('div');
             updateAttributes(divSet, {
+                "class" : "card",
+                "style": "width: 40%",
+                "id": `set${set.serial}`
+            });
+            let serial = document.createElement('p')
+            serial.innerHTML = `Set ${set.serial}`;
+            let setNumbers = document.createElement('p')
+            setNumbers.innerHTML = `Numbers: ${set.numbers.join(' ')}`;
+            let setMatch = document.createElement('p')
+            setMatch.innerHTML = `Match: ${set.match}`;
+            divSet.appendChild(serial);
+            divSet.appendChild(setNumbers);
+            divSet.appendChild(setMatch);
 
-            })
+            drawDisplay.appendChild(divSet);
+        }
+        for (match in matchCount1) {
+            let matchDis = document.createElement('p');
+            matchDis.innerHTML = `${match} : ${matchCount1[match]}`;
+            matchDisplay.appendChild(matchDis);
         }
         fetch('http://127.0.0.1:5000/winPrices', {
             method: 'POST',
@@ -81,14 +103,21 @@ function drawNumbers(event) {
             body: data,
         }).then(response => response.json())
         .then(wins => {
-            result = wins
-            console.log('the wins', wins);
-            for(i=0;i<=4;i++){
-                let div = document.createElement('div')
-                div.innerHTML= wins.finalWinnings[`Match${i}`]
-                document.getElementById('winnings').appendChild(div)
+            ({ winPerMatch, finalWinnings } = wins);
+            //console.log(finalWinnings);
+            for (win in winPerMatch) {
+                let winDis = document.createElement('p');
+                winDis.innerHTML = `${win} : ${winPerMatch[win]}`;
+                winsDisplay.appendChild(winDis);
             }
-            // ({ winCategories, finalWinnings } = wins);
+            for (set of drawedSets) {
+                set.wins = finalWinnings[`Match${set.match}`];
+                let setWins = document.createElement('p');
+                setWins.innerHTML = `Winnings: ${set.wins}`;
+                let divSet = document.getElementById(`set${set.serial}`)
+                divSet.appendChild(setWins);
+            }
+
         }).catch(function (error) {
             console.log(error);
         })

@@ -112,7 +112,7 @@ code {
   color: #FFB015;
 
 }
-p{
+body > p{
   padding-left: 200px;
   padding-right: 200px;
   font-size:20px
@@ -172,4 +172,13 @@ label{
 .winning{
   margin-left: 40%;
   margin-right: 20%;
+}
+
+#winCategories {
+  display: block;
+}
+
+
+.sets {
+  font-size: smaller;
 }

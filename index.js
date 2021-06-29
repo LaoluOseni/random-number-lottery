@@ -37,10 +37,10 @@ app.post('/winPrices', (req, res) => {
         }
     }
     //console.log(winnings);
-    let matchCount1 = JSON.parse(matchCount);
+    //let matchCount1 = JSON.parse(matchCount);
     //console.log(matchCount1);
 
-    let wins = lotfunc.drawPrices(numDraws, playPrice, winnings, matchCount1);
+    let wins = lotfunc.drawPrices(numDraws, playPrice, winnings, matchCount);
 
     //console.log(wins);
     wins = JSON.stringify(wins);

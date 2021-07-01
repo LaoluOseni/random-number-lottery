@@ -47,7 +47,6 @@ app.post('/winPrices', (req, res) => {
 
     res.setHeader('Content-Type', 'application/json');
     res.send(wins);
-
 })
 
 

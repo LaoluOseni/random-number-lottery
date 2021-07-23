@@ -46,7 +46,7 @@ function drawNumbers(event) {
     //console.log(Object.keys(data));
 
 
-    fetch('http://127.0.0.1:5000/playlottery', {
+    fetch('https://localhost/playlottery', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -95,7 +95,7 @@ function drawNumbers(event) {
             matchDis.innerHTML = `${match} : ${matchCount1[match]}`;
             matchDisplay.appendChild(matchDis);
         }
-        fetch('http://127.0.0.1:5000/winPrices', {
+        fetch('https://localhost/winPrices', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'

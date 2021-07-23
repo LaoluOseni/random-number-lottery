@@ -46,7 +46,7 @@ function drawNumbers(event) {
     //console.log(Object.keys(data));
 
 
-    fetch('https://localhost/playlottery', {
+    fetch('https://random-lottery-service23.herokuapp.com/playlottery', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -95,7 +95,7 @@ function drawNumbers(event) {
             matchDis.innerHTML = `${match} : ${matchCount1[match]}`;
             matchDisplay.appendChild(matchDis);
         }
-        fetch('https://localhost/winPrices', {
+        fetch('https://random-lottery-service23.herokuapp.com/winPrices', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'

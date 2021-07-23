@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "rngsimulator",
   "version": "1.0.0",
   "description": "Lottery System",
@@ -23,21 +22,6 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
-=======
-  "name": "rng",
-  "version": "1.0.0",
-  "description": "Random Number Generator",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server",
-    "dev": "nodemon server"
-  },
-  "author": "Laolu Oseni",
-  "license": "ISC",
-  "dependencies": {
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
->>>>>>> b1ce6c201c2a7223f537e72c301c27fba79a1c5e
     "nodemon": "^2.0.7"
   }
 }
